@@ -58,7 +58,7 @@ emacs /home/computationalphysics/Documents/cPlusPlus/lecture8/demonstration/src/
 # invocation. The required invocation to build a standalone binary
 # executable called "gslDemo" in the current directory is
 
-clang++ -std=c++11 -o gslDemo -I/usr/include -L/usr/lib -lgsl -lgslcblas GSLDemo.cpp
+clang++ -std=c++11 -o gslDemo -I/usr/include -L/usr/lib -lgsl -lgslcblas src/GSLDemo.cpp
 
 # Now try invoking the binary.
 
