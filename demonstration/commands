@@ -68,6 +68,22 @@ clang++ -std=c++11 -o gslDemo -I/usr/include -L/usr/lib -lgsl -lgslcblas src/GSL
 # is one of VERY FEW paths that are SEARCHED AUTOMATICALLY by the DYNAMIC
 # LINKER when the standalone binary is invoked.
 
+# The GSL provides a HANDY UTILITY called gsl-config to help you determine
+# the appropriate flags to use when invoking clang++. 
+# A LIST OF FLAGS that gsl-config accepts can be obtained by invoking it with
+# NO ARGUMENTS.
+
+gsl-config
+
+# To print all the flags you may require, invoke
+
+gsl-config --cflags —libs
+
+# If your code does not use BLAS functionality, invoke
+
+gsl-config --cflags --libs-without-cblas
+
 # Hopefully this demonstration has convinced you that HEADER FILES and
 # SHARED LIBRARIES provide an extremely flexible and straightforward
 # method of sharing code you write.
+
