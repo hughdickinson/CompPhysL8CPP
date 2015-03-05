@@ -1,0 +1,73 @@
+LECTURE 8: USING THE GNU SCIENTIFIC LIBRARY:
+============================================
+
+The GNU SCIENTIFIC LIBRARY (GSL) is an OPEN SOURCE software package
+that provides a rich suite of functionality that is tailored for
+SCIENTIFIC COMPUTING applications.
+
+The GSL is written using the C programming language. C++ is a SUPERSET
+of the C language, so the functionality provided by the GSL can be
+used in C++ programs in a straightforward manner.
+
+The GLS is distributed as a combination of HEADER FILES and SHARED
+LIBRARIES and provides EXTENSIVE ONLINE DOCUMENTATION at:
+
+http://www.gnu.org/software/gsl/manual/html_node/
+
+IF YOU HAVE NOT YET DONE SO, install the GSL by invoking:
+sudo apt-get install libgsl0ldbl
+sudo apt-get install libgsl0-dev
+
+These commands install the GSL-RELATED SHARED LIBRARIES in the
+"/usr/lib" directory and numerous GSL-RELATED HEADER FILES in the
+"/usr/include/gsl" directory.
+
+This demonstration will use two of the SHARED LIBRARIES that were
+installed with the GSL. Specifically, a standalone binary executable
+that links against "libgsl.so" and "libgslcblas.so" will be built.
+Ensure that the required libraries are present by invoking:
+
+ls /usr/lib/libgsl.so
+ls /usr/lib/libgslcblas.so
+
+You should also list the contents of the directory containing the
+GSL header files
+
+ls /usr/include/gsl
+
+A short C++ source code file called "GSLDemo.cpp" has been stored in
+"/home/computationalphysics/cPlusPlus/lecture8/demonstration/src".
+
+The file contains two short helper functions and a main() function that
+demonstrates the useage of multiple functions that are provided by the
+GSL. Inspect the file contents.
+
+emacs /home/computationalphysics/cPlusPlus/lecture8/demonstration/src/GSLDemo.cpp &
+
+In order to build a binary executable using the C++ source code within
+the "GSLDemo.cpp" file a clang++ invocation is required that instructs
+the C-PREPROCESSOR to search the "/usr/include" directory for the GSL
+HEADER FILES, (recall that these are explicitly qualified with the "gsl/"
+prfix when they are included by "GSLDemo.cpp") and also instructs the
+LINKER to search the "/usr/lib" directory to locate the required SHARED
+LIBRARIES.
+
+Both of the libraries that must be linked against ("libgsl.so" and
+"libgslcblas.so") obey Ubuntu Linux's shared library NAMING CONVENTION,
+so their names can be ABBREVIATED to "-lgsl" and "-lgslcblas" in the
+invocation. The required invocation to build a standalone binary
+executable called "gslDemo" in the current directory is
+
+clang++ -std=c++11 -o gslDemo -I/usr/include -L/usr/lib -lgsl -lgslcblas GSLDemo.cpp
+
+Now try invoking the binary.
+
+./gslDemo
+
+It works without having to update the LD_LIBRARY_PATH because "/usr/lib"
+is one of VERY FEW paths that are SEARCHED AUTOMATICALLY by the DYNAMIC
+LINKER when the standalone binary is invoked.
+
+Hopefully this demonstration has convinced you that HEADER FILES and
+SHARED LIBRARIES provide an extremely flexible and straightforward
+method of sharing code you write.
