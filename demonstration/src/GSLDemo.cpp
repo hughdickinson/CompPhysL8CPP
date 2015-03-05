@@ -9,7 +9,16 @@
  */
 #include <algorithm>
 
-// Include header files provided by the GSL
+/* Include header files provided by the GSL. Explicitly
+ * prepend the header names with their containing directory
+ * name "gsl". This is done because the GSL header files
+ * THEMSELVES adopt the same convention when including
+ * other header files provided by the GSL. Not doing so
+ * would require two usages of the -I flag when invoking
+ * clang++ to build this file i.e. -I/usr/include for the 
+ * GSL headers themselves and -I/usr/include/gsl for this
+ * file.
+ */
 
 // The "gsl_vector.h" header provides a gsl_vector type
 #include "gsl/gsl_vector.h"

@@ -33,7 +33,7 @@ ls /usr/lib/libgslcblas.so
 # You should also list the contents of the directory containing the
 # GSL header files
 
-# ls /usr/include/gsl
+ls /usr/include/gsl
 
 # A short C++ source code file called "GSLDemo.cpp" has been stored in
 # "/home/computationalphysics/cPlusPlus/lecture8/demonstration/src".
