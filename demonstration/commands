@@ -62,7 +62,7 @@ clang++ -std=c++11 -o gslDemo -I/usr/include -L/usr/lib -lgsl -lgslcblas GSLDemo
 
 # Now try invoking the binary.
 
-# ./gslDemo
+./gslDemo
 
 # It works without having to update the LD_LIBRARY_PATH because "/usr/lib"
 # is one of VERY FEW paths that are SEARCHED AUTOMATICALLY by the DYNAMIC
