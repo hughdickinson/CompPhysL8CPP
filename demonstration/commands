@@ -77,7 +77,7 @@ gsl-config
 
 # To print all the flags you may require, invoke
 
-gsl-config --cflags —libs
+gsl-config --cflags --libs
 
 # If your code does not use BLAS functionality, invoke
 
